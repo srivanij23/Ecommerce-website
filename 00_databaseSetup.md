@@ -27,11 +27,11 @@ Now, we will create the necessary tables for storing user and product data. You 
     password VARCHAR(255) NOT NULL,
     role ENUM('admin', 'customer') DEFAULT 'customer',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);```
+);
 
 2. Products Table
 
-```CREATE TABLE products (
+CREATE TABLE products (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     description TEXT,
@@ -39,22 +39,22 @@ Now, we will create the necessary tables for storing user and product data. You 
     stock_quantity INT NOT NULL,
     image_url VARCHAR(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);```
+);
 
 3. Orders Table
 
-```CREATE TABLE orders (
+CREATE TABLE orders (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
     total DECIMAL(10, 2) NOT NULL,
     status ENUM('pending', 'completed', 'shipped') DEFAULT 'pending',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id)
-);```
+);
 
 4. Order_Items Table
 
-```CREATE TABLE order_items (
+CREATE TABLE order_items (
     id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT,
     product_id INT,
@@ -62,7 +62,7 @@ Now, we will create the necessary tables for storing user and product data. You 
     price DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY (order_id) REFERENCES orders(id),
     FOREIGN KEY (product_id) REFERENCES products(id)
-);```
+);
 
 Step 3: Configure the Database Connection
 
