@@ -18,7 +18,7 @@ CREATE DATABASE ecommerce_website;
 Step 2: Create the Necessary Tables
 
 Now, we will create the necessary tables for storing user and product data. You can execute the following SQL queries in your MySQL console.
-1. Users Table
+```1. Users Table
 
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
