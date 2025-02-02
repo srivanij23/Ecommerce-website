@@ -5,9 +5,13 @@ This is a simple E-commerce Website built using HTML, CSS, and PHP to showcase a
 
 📌 Features
 ✅ Responsive and user-friendly design
+
 ✅ Product listing with details
+
 ✅ Shopping cart functionality
+
 ✅ Secure checkout process
+
 ✅ Admin panel for product management
 
 📌 Tech Stack
