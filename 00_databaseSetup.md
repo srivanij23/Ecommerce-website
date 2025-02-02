@@ -17,10 +17,10 @@ CREATE DATABASE ecommerce_website;
 
 Step 2: Create the Necessary Tables
 
-Now, we will create the necessary tables for storing user and product data. You can execute the following SQL queries in your MySQL console:
+Now, we will create the necessary tables for storing user and product data. You can execute the following SQL queries in your MySQL console.
 1. Users Table
 
-```CREATE TABLE users (
+CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL,
@@ -64,26 +64,28 @@ CREATE TABLE order_items (
     FOREIGN KEY (product_id) REFERENCES products(id)
 );
 
-Step 3: Configure the Database Connection
+Step 3: Configure the Database Connection Using PDO
 
     Open the PHP files in your e-commerce project where the database connection is established.
     Update the database connection details (hostname, username, password, and database name) accordingly.
 
-Example (using PHP's mysqli):
+Example (using PDO):
 
 <?php
 $host = 'localhost';  // Database server
+$dbname = 'ecommerce_website'; // Database name
 $user = 'root';       // Database username
 $password = '';       // Database password
-$database = 'ecommerce_website';  // Database name
 
-$conn = new mysqli($host, $user, $password, $database);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+try {
+    $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
+    // Set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connected successfully"; 
+}
+catch(PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
 }
 ?>
 
-Step 4: Testing
-
-After setting up the database and connection, test the functionality of your website by creating sample users, adding products, and simulating orders to ensure that everything works as expected.
+This PDO connection code is more secure and flexible, especially for handling SQL queries with prepared statements.
