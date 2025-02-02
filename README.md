@@ -1,4 +1,4 @@
-E-commerce Website
+# **E-commerce Website**
 
 📌 Project Overview
 This is a simple E-commerce Website built using HTML, CSS, and PHP to showcase and manage products efficiently. It provides a seamless shopping experience with an intuitive user interface.
